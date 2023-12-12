@@ -1,0 +1,57 @@
+/* =================== navbar CSS rules ====================== */
+.navbar-custom, .footer-custom {
+    background-color: #000; /* Pure black */
+}
+
+.navbar .nav-link.btn,
+.navbar .nav-link.btn-outline-primary {
+  color: white;
+}
+
+/* For the rightmost buttons that appear. The next 3 rules define the responsiveness of the button and how it might function when clicked.*/
+.btn-primary {
+    background-color: #7e65cc;
+    border-color:#7e65cc;
+}
+
+
+.btn-primary:hover {
+    background-color: #aa94f9; 
+    border-color: #6957ab;
+}
+  
+.btn-primary:focus, .btn-primary:active {
+    background-color: #524185; /* Even darker purple for the active state */
+    border-color: #6651a3;
+}
+  
+
+/* Increases the amount of space from the last button to edge of navbar*/
+.navbar-custom .navbar-nav > .nav-item:last-child .nav-link {
+    margin-right: 100px; 
+}
+  
+.nav-item .nav-link {
+    margin-right: 15px; /* spacing between the buttons */
+    padding: 5px 15px;  
+}
+  
+
+.review-item {
+    border-bottom: 1px dashed #a5a5a5;
+}
+
+.propic {
+    max-width: 50%;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100px;  
+    height: 100px; 
+    object-fit: cover;
+}
+
+.comment-pic {
+    max-width: 64px;
+}

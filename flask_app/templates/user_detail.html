@@ -1,0 +1,37 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="row">
+    <div class="col">
+        {% if error %}
+        <div class="alert alert-warning" role="alert">
+            <span>{{ error }}</span>
+        </div>
+        {% else %}
+            <div class="row">
+                <div class="col">
+                    {# User's Profile Picture #}
+                    {% if profile_pic %}
+                    <img class="propic profile-pic" src="data:image/png;base64,{{ profile_pic }}" alt="Profile Picture">
+                    {% endif %}
+                </div>
+                <div class="col">
+                    {# Indicate which user's reviews we're looking at #}
+                    <h2>Reviews by {{ current_user.username }}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {# Show all reviews made by the user #}
+                    {% for review in reviews %}
+                    <div class="review">
+                        <h3>{{ review.movie_title }}</h3>
+                        <p>{{ review.content }}</p>
+                        <small>Reviewed on: {{ review.date }}</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
