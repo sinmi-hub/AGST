@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block header %}
+<header>
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <a class="navbar-brand" href="{{ url_for('content.index') }}">AGST</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users.account') }}">
+                        Account
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users.logout') }}">
+                        Logout
+                    </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light  btn-sm"  href="{{ url_for('users.login') }}">
+                        Sign in
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary btn-sm" aria-pressed="true" 
+                    href="{{ url_for('users.register') }}">
+                        Register
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </nav>
+</header>
+{% endblock %}
