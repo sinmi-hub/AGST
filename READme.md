@@ -44,19 +44,19 @@ Activate your virtual environment and use pip3 install -r requirements.txt
         `custom.css: Custom CSS styles.`
 - flask_app/templates/: Contains HTML templates.
     - 404.html: Custom 404 error page.
-    - account.html: User account page template.
+    - account.html: Educator's account page template.
     - content_view.html: Template for content viewing.
     - header.html: Common header for all pages.
     - index.html: Homepage template.
     - layout.html: Base layout for the app.
     - login.html: Login page template.
-    - register.html: User registration page template.
-    - user_detail.html: User detail page template.
+    - register.html: Educator registration page template.
+    - user_detail.html: Educator detail page template.
 
-### Users Module
-- flask_app/users/: A sub-module for educator's -related routes and logic.
-       -  __init__.py: Initializes the users module.
-       -  routes.py: Defines routes for user operations.
+### Educator Module
+- flask_app/educator/: A sub-module for educator's -related routes and logic.
+    - __init__.py: Initializes the educator module.
+    -  routes.py: Defines routes for educator operations.
 
 ## Running the Project
 To run this project, stay in the `AGST_Project/` directory, or whatever you decide to name the directory, for this project  and use the `flask run` command. The file that is run is `run.py`. It simply imports the `app` object from the `flask_app/` package. The reason for this is to
