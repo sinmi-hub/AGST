@@ -30,9 +30,6 @@ class School(object):
         print(api_call)
         return api_call
     
-
-
-
     
 class SchoolClient(object):
     def __init__(self):
