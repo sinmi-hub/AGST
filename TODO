@@ -1,21 +1,20 @@
-Mac instructions github , maybe??
-added student folder. Might create student class
-Could add rating system to reviews?
-
 ### API
 Review what alternative school is, and what how that can be embedded into API. Why we should add that
-https://data-maryland.opendata.arcgis.com/search?collection=Dataset
+https://data-maryland.opendata.arcgis.com/search?collection=Dataset - ``DONE``
 
+
+
+
+### TODO CHECKS
+- route.py - redirecting an authenticated user to homepage. Gotta figure out what homepage is - ``DONE``
+- when school is empty in searchbar
+- Currently allowing invalid certificate for MONGOdb HOST IN CONFIg - ``FIXED``
+- Change background color to not generate white, or blue for default picture
+- 
 
 ### Logic in Review is still Wonky
 Informal Educators can only create videos - Reviewable by Student and Educators (Anythinh)
 Student can create videos - Reviewable by Educators and IE
 Educators can create videos and lesson plans - Reviewable by Student and IE (Only on style of teaching)
 
-### TODO CHECKS
-route.py - redirecting an authenticated user to homepage. Gotta figure out what homepage is
-fix header by adding login, regsiter and logout routes
-
-# Dr Welsh Checking
-Do we want register to show on header?
 
