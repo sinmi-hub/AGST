@@ -1,3 +1,12 @@
+/* =========== General alignment and color scheme ==============*/
+main { 
+    margin-top: 40px; /* This cannot go in bodybecause of header and footer*/
+}
+
+body{
+    background-color: #f5f5f5;
+}
+
 /* =================== navbar CSS rules ====================== */
 .navbar-custom, .footer-custom {
     background-color: #000; /* Pure black */
@@ -35,22 +44,93 @@
     margin-right: 15px; /* spacing between the buttons */
     padding: 5px 15px;  
 }
-  
 
+
+/*========== SEARCH RESULTS ================*/
+.schoolmaps {
+    max-width: 100;
+    padding: 1; 
+}
 .review-item {
     border-bottom: 1px dashed #a5a5a5;
 }
 
-.propic {
-    max-width: 50%;
+/* ========================= USER'S ACCOUNT ================================*/
+.profile-picture-container {
+    position: relative;
+    width: 300px; 
+    height: 300px; 
+    background: linear-gradient(to bottom, #00eaff, #119afc);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .profile-pic {
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 50%;
-    width: 100px;  
-    height: 100px; 
+    width: 70%;  
+    height: 70%; 
     object-fit: cover;
 }
+
+.username-container {
+    position: absolute;
+    bottom: 10px; 
+    width: 100%;
+    text-align: center;
+}
+
+.username-text{
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rectangle{ 
+    background-color: white;
+    outline: 1px solid #cccccc;
+    width: 100%; 
+    height: 150px; 
+    margin: 1px auto;
+}
+
+.rectangle-larger{ 
+    height:300px;
+    margin:30px auto;
+}
+
+.rectangle-largest{ 
+    height:450px;
+    margin:30px auto;
+}
+
+.contact-details-box{
+    margin-top: 30px;
+    background-color: white;
+    outline: 1px solid #cccccc;
+    width: 300px; 
+    height: 300px; 
+    box-sizing: border-box;
+}
+
+.small-squares{
+    background-color: white;
+    outline: 1px solid #cccccc;
+    width: 65px; 
+    height: 50px; 
+    margin-top: 15px;
+    margin-left: 15px;
+    margin-right:-2px;
+}
+
+
+/* ====================   =======================*/
 
 .comment-pic {
     max-width: 64px;
