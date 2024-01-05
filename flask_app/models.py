@@ -8,7 +8,7 @@ from .utils import curr_datetime
 # This function, decorated with @login_manager.user_loader, is used to load a user from the database. It uses the argument, educator_id to find the specific educator that might exist in the database, and returns the first occurrence of the educator with such username.
 @login_manager.user_loader
 def load_user(user_id):
-    return User.objects(username = user_id).first()
+    return User.objects(pk=user_id).first()
 
 class User(db.Document, UserMixin):
     # necessary, so MongoEngine can tell this class will be inherited. Found on stack overflow. This seems to be set to False by default
@@ -22,16 +22,6 @@ class User(db.Document, UserMixin):
     password = db.StringField(required=True, min_length=12) # length of 12
     profile_pic = db.ImageField()
     bio =  db.StringField()
-
-    # constructor
-    def __init__(self, firstname, lastname, username, email, password):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.username = username
-        self.email = email
-        self.password = password
-        self.bio = ""
-        self.profile_pic = None
 
     # returns the user's first name and last name using current states
     def fullname(self):
@@ -49,41 +39,37 @@ class User(db.Document, UserMixin):
 # This class describes the user model and what each user (Educator's) state and characteristics should have
 class Educator(User):
     institution = db.StringField(required=True)
-    
-    # This is how we will keep track of educators that sign up
-    def __init__(self, firstname, lastname, username, email, password, institution, profile_pic=None, bio="", role="Educator"):
-        super().__init__(firstname, lastname, username, email, password, profile_pic, bio)
-        self.institution = institution
-        self.role = role
+    role = db.StringField("Educator")
     
     # Get the corresponding place that they teach
     def get_institution(self):
        return self.institution
+    
+    def get_role(self):
+        return self.role
 
 
 # represents student class
 class Student(User):
     college = db.StringField(required=True)
-    
-    # This is how we will keep track of student that sign up
-    def __init__(self, firstname, lastname, username, email, password, college, profile_pic=None, bio="", role="Student"):
-        super().__init__(firstname, lastname, username, email, password, profile_pic, bio)
-        self.college = college
-        self.role = role
+    role = db.StringField("Student")
 
     def get_institution(self):
         return self.college
+    
+    def get_role(self):
+        return self.role
 
 # Any other person who would love to add opinion, or teach, but does not necessarily have any academic experience
 class InformalEducator(User):
+    college = db.StringField("")
+    role = db.StringField("Informal Educator")
 
-    def __init__(self, firstname, lastname, username, email, password, college="Life", profile_pic=None, bio="", role="Informal Educator"):
-        super().__init__(firstname, lastname, username, email, password, profile_pic, bio)
-        self.college = college
-        self.role = role
+    def get_role(self):
+        return self.role
 
-    def get_institution(self):
-        return self.college
+
+  
     
 #-------------------------CONTENT MANAGEMENT------------------------------------
 # stores lesson plan updated by educators or professor's
