@@ -1,17 +1,70 @@
 {% extends "header.html" %}
+
 {% block content %}
 <div class="row">
-    {% if image %}
-    <div class="col">
-        {# Profile picture #}
-        <img class="propic profile-pic" src="data:image/png;base64,{{image}}" alt="image">
+
+    <div class="col-auto">
+        {% if image %}
+            <!-- profile picture container -->
+            <div class="profile-picture-container rounded-lg">
+                <!-- if image or profile picture is default-->
+                {% if image[-4:] == '.jpg' %}
+                    <img class="profile-pic" src="{{ image }}" alt="Profile Picture">
+                {% else %}
+                    <img class="profile-pic" src="data:image/png;base64,{{ image }}" alt="Profile Picture">
+                {% endif %}
+
+                <!-- name in the profile account -->
+                <div class="username-container">
+                    <h3 class="username-text">{{ current_user.firstname }}</h3>
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- user's stats and achievements-->
+        <div class="row">
+            <div class="small-squares rounded-lg">
+                <!-- Content for first small square -->
+            </div>
+            <div class="small-squares rounded-lg">
+                <!-- Content for second small square -->
+            </div>
+            <div class="small-squares rounded-lg">
+                <!-- Content for second small square -->
+            </div>
+            <div class="small-squares rounded-lg">
+                <!-- Content for second small square -->
+            </div>
+        </div>
+
+        <div class="contact-details-box rounded-lg">
+
+        </div>
     </div>
-    {% endif %}
+
+    <!-- 2nd half of webpage !-->
     <div class="col">
-        <h2>Welcome, {{ current_user.username }}!</h2>
+        <!-- first rectangle!-->
+        <div class="rectangle rounded-lg">
+            <!--TODO-->
+        </div>
+        
+        <!-- second rectangle!-->
+        <div class="rectangle rectangle-larger rounded-lg">
+            <!-- TODO -->
+        </div>
+
+          <!-- third rectangle!-->
+          <div class="rectangle rectangle-largest rounded-lg">
+            <!-- TODO -->
+        </div>
     </div>
+
 </div>
-<div class="row">
+
+
+
+<!-- <div class="row">
     <div class="col">
         <h3>
             Update Username
@@ -54,10 +107,10 @@
             {{ update_profile_picture_form.submit_picture() }}
         </form>
     </div>
-</div>
-<div class="row">
+</div> -->
+<!-- <div class="row">
     <div class="col">
         <a href="{{ user_reviews_url }}">View all my reviews</a>
     </div>
-</div>
+</div> -->
 {% endblock %}

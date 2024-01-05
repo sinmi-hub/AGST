@@ -13,20 +13,23 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 {% if current_user.is_authenticated %}
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('users.account') }}">
-                        Account
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('users.logout') }}">
+                    <a class="nav-link btn btn-primary btn-sm" aria-pressed="true" href="{{ url_for('users.logout') }}">
                         Logout
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light  btn-sm" href="{{ url_for('users.account') }}">
+                        Account
+                    </a>
+                </li>
+
                 {% else %}
+                
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-light  btn-sm"  href="{{ url_for('users.login') }}">
-                        Sign in
+                        Login
                     </a>
                 </li>
                 <li class="nav-item">
