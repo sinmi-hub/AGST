@@ -75,7 +75,7 @@ class UpdateUsernameForm(FlaskForm):
     submit_username = SubmitField('Change Username')
 
     def validate_username(self, username):
-        user = Educator.objects(username = username.data).first()
+        user = User.objects(username = username.data).first()
         if user:
             raise ValidationError('Username already exists. Try again')
 
